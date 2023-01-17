@@ -1,19 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Count from "./Count";
 
 function App() {
-    const [count, setCount] = useState(0)
-    return (
-        <div className='App'>
-            <h1>State Test</h1>
-            <p>Make a statlessComponent to show and update count</p>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-            </div>
-        </div>
-    )
+  const [count, setCount] = useState(0);
+  const handIncrement = () => {
+    setCount(count + 1);
+  };
+  return (
+    <div className="App">
+      <Count count={count} handIncrement={handIncrement} />
+    </div>
+  );
 }
 
-export default App
+export default App;
