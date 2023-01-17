@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import Count from "./Count";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const handIncrement = () => {
-    setCount(count + 1);
+  const [windowScreen, setWindowScreen] = useState(window.innerWidth);
+  const handleWidth = () => {
+    setWindowScreen(window.innerWidth);
   };
+  useEffect(() => {
+    window.addEventListener("resize", handleWidth);
+  }, [windowScreen]);
+
   return (
     <div className="App">
-      <Count count={count} handIncrement={handIncrement} />
+      <p>{windowScreen}</p>
     </div>
   );
 }
