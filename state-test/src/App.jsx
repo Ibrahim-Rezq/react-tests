@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { useEffect, useState } from 'react'
+import './App.css'
+import Width from './Width'
 
 function App() {
-  const [windowScreen, setWindowScreen] = useState(window.innerWidth);
-  const handleWidth = () => {
-    setWindowScreen(window.innerWidth);
-  };
-  useEffect(() => {
-    window.addEventListener("resize", handleWidth);
-  }, [windowScreen]);
+    const [Show, setShow] = useState(true)
 
-  return (
-    <div className="App">
-      <p>{windowScreen}</p>
-    </div>
-  );
+    useEffect(() => {
+        console.log(Show)
+    }, [Show])
+
+    return (
+        <div className='App'>
+            {Show && <Width />}
+            <button onClick={() => setShow((v) => !v)}>Click</button>
+        </div>
+    )
 }
 
-export default App;
+export default App
